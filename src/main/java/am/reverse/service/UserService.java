@@ -3,18 +3,14 @@ package am.reverse.service;
 import am.reverse.dto.UserDto;
 import am.reverse.entities.Address;
 import am.reverse.entities.User;
-import am.reverse.ex.ResourceAlreadyExistsException;
+import am.reverse.exception.ResourceAlreadyExistsException;
 import am.reverse.exception.ResourceNotFoundException;
 import am.reverse.mappers.AddressMapper;
 import am.reverse.mappers.UserMapper;
 import am.reverse.repository.AddressRepository;
 import am.reverse.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Optional;
 
