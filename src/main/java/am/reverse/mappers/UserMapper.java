@@ -19,7 +19,7 @@ public class UserMapper {
 
         user.setName(userDto.getName());
         user.setPhoneNumber(userDto.getPhoneNumber());
-        // user.setAddress(userDto.getAddressDto());
+        user.setEmail(userDto.getEmail());
         user.setAddress(addressMapper.toAddress(userDto.getAddress()));
 
         return user;
@@ -29,8 +29,9 @@ public class UserMapper {
         UserDto userDto = new UserDto();
 
         userDto.setName(user.getName());
-        userDto.setPhoneNumber(userDto.getPhoneNumber());
-        userDto.setAddress(userDto.getAddress());
+        userDto.setPhoneNumber(user.getPhoneNumber());
+        userDto.setEmail(user.getEmail());
+        userDto.setAddress(addressMapper.toAddressDto(user.getAddress()));
 
         return userDto;
     }

@@ -32,9 +32,9 @@ public class UserService {
 
     public UserDto createUser(UserDto userDto) {
 
-        if (userRepository.existsByName(userDto.getName())) {
+        if (userRepository.existsByEmail(userDto.getEmail())) {
             throw new ResourceAlreadyExistsException(
-                    "User with name " + userDto.getName() + " already exists");
+                    "User with email " + userDto.getEmail() + " already exists");
         }
         Address address = addressRepository.save(addressMapper.toAddress(userDto.getAddress()));
         User userToSave = this.userMapper.toUser(userDto);
@@ -47,6 +47,9 @@ public class UserService {
     public UserDto getUser(Long id) {
 
         Optional<User> user = this.userRepository.findById(id);
+        if(user.isEmpty()){
+            throw new ResourceNotFoundException("User not found with Id: " + id);
+        }
         return userMapper.toUserDto(user.get());
     }
 

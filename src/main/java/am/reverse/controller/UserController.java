@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -28,15 +30,13 @@ public class UserController {
                 "User was created", HttpStatus.OK
         );
     }
-//
-//    @GetMapping("/{id}")
-//    public ResponseEntity<?> getEmployee(@PathVariable("id") Long id) {
-//        Optional<EmployeeDto> emp = employeeService.getEmployee(id);
-//        if (emp.isPresent()) {
-//            return new EmployeeLookupResponse(emp.get()).onSuccess();
-//        }
-//        return new EmployeeLookupResponse(null).onFailure();
-//    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getUser(@PathVariable("id") Long id) {
+        UserDto user = userService.getUser(id);
+        return new ResponseEntity<>(user,HttpStatus.OK);
+
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {

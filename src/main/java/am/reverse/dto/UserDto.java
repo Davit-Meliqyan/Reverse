@@ -7,6 +7,10 @@ public class UserDto {
 
     private String name;
     private String phoneNumber;
+
+
+
+    private String email;
     private AddressDto address;
 
     public String getName() {
@@ -31,5 +35,13 @@ public class UserDto {
 
     public void setAddress(AddressDto address) {
         this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
