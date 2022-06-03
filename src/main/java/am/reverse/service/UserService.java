@@ -30,14 +30,11 @@ public class UserService {
         this.addressRepository = addressRepository;
     }
 
-
     public UserDto createUser(UserDto userDto) {
 
         if (userRepository.existsByName(userDto.getName())) {
-            System.out.println("Barlus");
             throw new ResourceAlreadyExistsException(
                     "User with name " + userDto.getName() + " already exists");
-
         }
         Address address = addressRepository.save(addressMapper.toAddress(userDto.getAddress()));
         User userToSave = this.userMapper.toUser(userDto);
@@ -65,8 +62,6 @@ public class UserService {
         user.get().setName(userDto.getName());
         user.get().setAddress(address);
 
-
-
         userRepository.save(user.get());
         return userDto;
     }
@@ -79,5 +74,4 @@ public class UserService {
         }
         userRepository.delete(card.get());
     }
-
 }

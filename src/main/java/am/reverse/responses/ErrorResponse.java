@@ -14,9 +14,9 @@ public  class ErrorResponse {
 
     private String status;
 
-    private String stackTrace;
-
-    private Object data;
+//    private String stackTrace;
+//
+//    private Object data;
 
     public ErrorResponse() {
 
@@ -57,19 +57,19 @@ public  class ErrorResponse {
         this.status = status;
     }
 
-    public String getStackTrace() {
-        return stackTrace;
-    }
-
-    public void setStackTrace(String stackTrace) {
-        this.stackTrace = stackTrace;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
+//    public String getStackTrace() {
+//        return stackTrace;
+//    }
+//
+//    public void setStackTrace(String stackTrace) {
+//        this.stackTrace = stackTrace;
+//    }
+//
+//    public Object getData() {
+//        return data;
+//    }
+//
+//    public void setData(Object data) {
+//        this.data = data;
+//    }
 }
